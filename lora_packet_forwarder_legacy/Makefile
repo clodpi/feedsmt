@@ -36,6 +36,7 @@ define Package/lora_packet_forwarder_legacy/install
 	$(INSTALL_DIR) $(1)/etc/lora
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/lora_pkt_fwd/global_conf.json $(1)/etc/lora/global_legacy_conf.json
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/lora_pkt_fwd/local_conf.json $(1)/etc/lora/local_legacy_conf.sample.json
+        $(INSTALL_CONF) ./files/conf/ $(1)/etc/lora/
 endef
 
 $(eval $(call BuildPackage,lora_packet_forwarder_legacy))
