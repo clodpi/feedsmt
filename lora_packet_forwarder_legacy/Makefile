@@ -38,6 +38,7 @@ define Package/lora_packet_forwarder_legacy/install
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/lora_pkt_fwd/global_conf.json $(1)/etc/lora/global_legacy_conf.json
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/lora_pkt_fwd/local_conf.json $(1)/etc/lora/local_legacy_conf.sample.json
 	$(INSTALL_CONF) ./files/conf/*.json $(1)/etc/lora/
+	$(INSTALL_CONF) ./files/conf/IN-global_conf.json $(1)/etc/lora/global_conf.json
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/lora_pkt_fwd.init $(1)/etc/init.d/lora_pkt_fwd
 endef
