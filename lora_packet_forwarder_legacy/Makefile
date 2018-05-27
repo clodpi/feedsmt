@@ -3,7 +3,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lora_packet_forwarder_legacy
-PKG_VERSION:=4.0.1
+PKG_VERSION:=4.0.2
 PKG_RELEASE:=1
 PKG_MAINTAINER:=Karthirockz <friendlykarthi@gmail.com>
 
