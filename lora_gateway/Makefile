@@ -3,7 +3,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lora_gateway
-PKG_VERSION:=5.0.1
+PKG_VERSION:=5.0.2
 PKG_RELEASE:=v1.0.0
 PKG_MAINTAINER:=Dan Knox <d.knox@kent.ac.uk>
 
