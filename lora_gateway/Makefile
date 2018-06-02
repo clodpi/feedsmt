@@ -3,12 +3,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lora_gateway
-PKG_VERSION:=5.0.5
+PKG_VERSION:=5.0.6
 PKG_RELEASE:=v1.0.0
 PKG_MAINTAINER:=Dan Knox <d.knox@kent.ac.uk>
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/karthirockz/loragateway.git
+PKG_SOURCE_URL:=https://github.com/karthirockz/lora_gateway.git
 PKG_SOURCE_VERSION:=master
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 # We override "packagename-packageversion", because
