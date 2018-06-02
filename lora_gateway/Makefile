@@ -21,7 +21,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/lora_gateway
   TITLE:=Lora Gateway Package
-	DEPENDS:=+librt +libmpsse +libusb
+	DEPENDS:=+librt
 	SECTION:=libs
   CATEGORY:=Libraries
 endef
