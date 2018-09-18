@@ -9,7 +9,7 @@ PKG_MAINTAINER:=Karthirockz <friendlykarthi@gmail.com>
 
 PKG_SOURCE_PROTO:=git
 #PKG_SOURCE_URL:=git://github.com/danielknox/lora_packet_forwarder_legacy.git
-PKG_SOURCE_URL:=git://github.com/karthirockz/lora_packet_forwarder_legacy.git
+#PKG_SOURCE_URL:=git://github.com/karthirockz/lora_packet_forwarder_legacy.git
 PKG_SOURCE_URL:=git@gitlab.com:clodpi/mt7688-lora-packet-forwarder-legacy.git
 PKG_SOURCE_VERSION:=master
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
