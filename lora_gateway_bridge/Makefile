@@ -1,0 +1,31 @@
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=lora_gw_bridge
+PKG_VERSION:=1.0.0
+PKG_RELEASE=$(PKG_VERSION)
+
+PKG_SOURCE_PROTO:=git
+include $(INCLUDE_DIR)/package.mk
+
+define Package/lora_gateway_bridge
+	TITLE:=LoRa Gateway Bridge
+endef
+
+define Build/Prepare
+	git submodule update --init
+endef
+
+define Build/Configure
+	true
+endef
+
+define Build/Compile
+	cd src; GOOS=linux GOARCH=mips64le GOMIPS=softfloat make build
+endef
+
+define Package/lora_gateway_bridge/install
+	$(INSTALL_BIN) src/build/lora-gateway-bridge $(1)/sbin/lora-gateway-bridge
+	$(CP) ./files/* $(1)
+endef
+
+$(eval $(call BuildPackage,lora_gateway_bridge))

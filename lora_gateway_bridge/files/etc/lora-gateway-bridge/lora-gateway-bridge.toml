@@ -1,0 +1,76 @@
+[general]
+log_level = 4
+
+
+# Configuration which relates to the packet-forwarder.
+[packet_forwarder]
+udp_bind = "0.0.0.0:1700"
+skip_crc_check = false
+
+
+  # # Managed packet-forwarder configuration.
+  # #
+  # # By configuring one or multiple managed packet-forwarder sections, the
+  # # LoRa Gateway Bridge updates the configuration when the backend receives
+  # # a configuration change, after which it will restart the packet-forwarder.
+  # [[packet_forwarder.configuration]]
+  # # Gateway MAC.
+  # #
+  # # The LoRa Gateway Bridge will only apply the configuration updates for this
+  # # gateway MAC.
+  # mac="0102030405060708"
+
+  # # Base configuration file.
+  # #
+  # # This file will be used as base-configuration and will not be overwritten on
+  # # a configuration update. This file needs to exist and contains the base
+  # # configuration and vendor specific
+  # base_file="/etc/lora-packet-forwarder/global_conf.json"
+
+  # # Output configuration file.
+  # #
+  # # This will be the final configuration for the packet-forwarder, containing
+  # # a merged version of the base configuration + the requested configuration
+  # # update.
+  # # Warning: this file will be overwritten on a configuration update!
+  # output_file="/etc/lora-packet-forwarder/local_conf.json"
+
+  # # Restart command.
+  # #
+  # # This command is issued by the LoRa Gateway Bridge on a configuration
+  # # change. Make sure the LoRa Gateway Bridge process has sufficient
+  # # permissions to execute this command.
+  # restart_command="/etc/init.d/lora-packet-forwarder restart"
+
+
+[backend.mqtt]
+uplink_topic_template="gateway/{{ .MAC }}/rx"
+downlink_topic_template="gateway/{{ .MAC }}/tx"
+stats_topic_template="gateway/{{ .MAC }}/stats"
+ack_topic_template="gateway/{{ .MAC }}/ack"
+config_topic_template="gateway/{{ .MAC }}/config"
+
+marshaler="v2_json"
+
+  [backend.mqtt.auth]
+  type="generic"
+
+    [backend.mqtt.auth.generic]
+    server="tcp://staging.console.clodpi.io:1883"
+    username="clodpi-gateway"
+    password="pass-for-user-with-gw-acl"
+    qos=0
+    clean_session=true
+
+    client_id=""
+
+    ca_cert=""
+    tls_cert=""
+    tls_key=""
+    max_reconnect_interval="10m0s"
+
+
+[metrics]
+  [metrics.prometheus]
+  endpoint_enabled=false
+  bind=""

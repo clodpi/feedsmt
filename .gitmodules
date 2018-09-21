@@ -1,0 +1,3 @@
+[submodule "lora_gateway_bridge/src"]
+	path = lora_gateway_bridge/src
+	url = git@gitlab.com:clodpi/lora-gateway-bridge.git
