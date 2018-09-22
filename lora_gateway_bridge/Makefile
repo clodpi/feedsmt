@@ -12,7 +12,7 @@ define Package/lora_gateway_bridge
 endef
 
 define Build/Prepare
-	git submodule update --init
+	true
 endef
 
 define Build/Configure
@@ -20,12 +20,10 @@ define Build/Configure
 endef
 
 define Build/Compile
-	cd src && go mod download && GOOS=linux GOARCH=mips64le GOMIPS=softfloat make build
+	true
 endef
 
 define Package/lora_gateway_bridge/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) src/build/lora-gateway-bridge $(1)/usr/bin/lora-gateway-bridge
 	$(CP) ./files/* $(1)
 endef
 
