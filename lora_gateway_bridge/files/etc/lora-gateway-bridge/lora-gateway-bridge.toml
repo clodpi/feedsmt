@@ -56,7 +56,7 @@ marshaler="v2_json"
   type="generic"
 
     [backend.mqtt.auth.generic]
-    server="tcp://staging.console.clodpi.io:1883"
+    server="tcp://console.clodpi.io:1883"
     username="clodpi-gateway"
     password="pass-for-user-with-gw-acl"
     qos=0
