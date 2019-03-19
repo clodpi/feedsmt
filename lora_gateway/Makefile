@@ -1,11 +1,11 @@
-# Author: Daniel Knox <d.knox@kent.ac.uk>
+# Author: Karthi ClodPi
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lora_gateway
 PKG_VERSION:=5.0.7
 PKG_RELEASE:=v1.0.0
-PKG_MAINTAINER:=Dan Knox <d.knox@kent.ac.uk>
+PKG_MAINTAINER:=Karthi ClodPi
 
 PKG_SOURCE_PROTO:=git
 #PKG_SOURCE_URL:=https://github.com/danielknox/lora_gateway.git
