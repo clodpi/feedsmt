@@ -3,8 +3,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lora_packet_forwarder_legacy
-PKG_VERSION:=4.0.3
-PKG_RELEASE:=1
+PKG_VERSION:=1.1
+PKG_RELEASE:=v0.1.0
 PKG_MAINTAINER:=Karthirockz <friendlykarthi@gmail.com>
 
 PKG_SOURCE_PROTO:=git
