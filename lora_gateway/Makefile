@@ -3,13 +3,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lora_gateway
-PKG_VERSION:=5.0.7
-PKG_RELEASE:=v1.0.0
+PKG_VERSION:=1.1
+PKG_RELEASE:=v0.2.2
 PKG_MAINTAINER:=Karthi ClodPi
 
 PKG_SOURCE_PROTO:=git
 #PKG_SOURCE_URL:=https://github.com/danielknox/lora_gateway.git
-PKG_SOURCE_URL:=git@gitlab.com:clodpi/mt7688-loragateway.git
+PKG_SOURCE_URL:=git@github.com:Lora-net/picoGW_hal.git
 PKG_SOURCE_VERSION:=master
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 # We override "packagename-packageversion", because
@@ -20,14 +20,14 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 
-define Package/lora_gateway
+define Package/lora_gateway_pico
   TITLE:=Lora Gateway Package
 	DEPENDS:=+librt
 	SECTION:=libs
   CATEGORY:=Libraries
 endef
 
-define Package/lora_gateway/description
+define Package/lora_gateway_pico/description
   Lora Gateway is an interface library to build a gateway based on
   a concentrator board e.g. IC880A or RAK831 .
   Note: currently this package is hardcoded to Mediatek MT76xx,
@@ -43,7 +43,7 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/libloragw/libloragw.a $(1)/usr/lib/
 endef
 
-define Package/lora_gateway/install
+define Package/lora_gateway_pico/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/libloragw/test* $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_pkt_logger/util_pkt_logger $(1)/usr/bin
@@ -54,4 +54,4 @@ define Package/lora_gateway/install
 endef
 
 $(eval $(call HostBuild))
-$(eval $(call BuildPackage,lora_gateway))
+$(eval $(call BuildPackage,lora_gateway_pico))
