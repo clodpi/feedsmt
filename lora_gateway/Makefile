@@ -2,7 +2,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=lora_gateway
+PKG_NAME:=picoGW_hal
 PKG_VERSION:=1.1
 PKG_RELEASE:=v0.2.2
 PKG_MAINTAINER:=Karthi ClodPi
