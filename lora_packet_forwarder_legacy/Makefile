@@ -37,8 +37,7 @@ define Package/lora_packet_forwarder_legacy_pico/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lora_pkt_fwd/lora_pkt_fwd $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/etc/lora
 	$(INSTALL_CONF) ./files/conf/*.json $(1)/etc/lora/
-	$(INSTALL_CONF) ./files/conf/IN-global_conf.json $(1)/etc/lora/global_conf.json
-	$(INSTALL_CONF) ./files/local_conf.json $(1)/etc/lora/local_conf.json
+	$(INSTALL_CONF) ./files/local_conf.json $(1)/usr/bin/local_conf.json
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DATA) ./files/lora-global.config $(1)/etc/config/lora-global
 	$(INSTALL_DIR) $(1)/etc/init.d
