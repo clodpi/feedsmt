@@ -48,9 +48,11 @@ define Package/lora_gateway_pico/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/libloragw/test* $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_pkt_logger/util_pkt_logger $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_tx_continuous/util_tx_continuous $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_spi_stress/util_spi_stress $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_com_stress/util_com_stress $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_tx_test/util_tx_test $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/reset_lgw.sh $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_boot/util_boot $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/util_chip_id/util_chip_id $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lora_indent.sh $(1)/usr/bin
 endef
 
 $(eval $(call HostBuild))
