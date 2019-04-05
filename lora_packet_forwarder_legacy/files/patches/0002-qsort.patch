@@ -1,7 +1,7 @@
-Index: packet_forwarder-4.0.1/lora_pkt_fwd/src/jitqueue.c
+Index: lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
 ===================================================================
---- packet_forwarder-4.0.1.orig/lora_pkt_fwd/src/jitqueue.c
-+++ packet_forwarder-4.0.1/lora_pkt_fwd/src/jitqueue.c
+--- lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
++++ lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
 @@ -91,32 +91,31 @@
      pthread_mutex_unlock(&mx_jit_queue);
  }
