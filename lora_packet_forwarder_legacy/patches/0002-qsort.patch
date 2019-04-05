@@ -41,8 +41,3 @@ Index: lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
  }
  
  bool jit_collision_test(uint32_t p1_count_us, uint32_t p1_pre_delay, uint32_t p1_post_delay, uint32_t p2_count_us, uint32_t p2_pre_delay, uint32_t p2_post_delay) {
-@@ -462,3 +461,4 @@
-         pthread_mutex_unlock(&mx_jit_queue);
-     }
- }
-+
