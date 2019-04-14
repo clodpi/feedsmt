@@ -1,5 +1,5 @@
---- lpfo.c	2019-04-09 12:48:46.000000000 +0530
-+++ lfp.c	2019-04-09 12:49:27.000000000 +0530
+--- lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/lora_pkt_fwd.c	2019-04-09 12:48:46.000000000 +0530
++++ lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/lora_pkt_fwd.c	2019-04-09 12:49:27.000000000 +0530
 @@ -817,9 +817,9 @@
      const char *com_path = com_path_default;
 
