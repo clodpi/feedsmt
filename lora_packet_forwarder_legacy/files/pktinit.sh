@@ -14,7 +14,8 @@ then
 else
     arg0=" -d /dev/ttyACM1"
 fi
-/usr/bin/util_chip_id $arg0
+
+(sleep 1 && killall util_chip_id) & /usr/bin/util_chip_id $arg0
 
 sleep 2
 if [ -e "/dev/ttyACM0" ]
