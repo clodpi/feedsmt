@@ -37,12 +37,11 @@ start_service()
 
     if [ -e "/dev/ttyACM0" ]
     then
-        procd_set_param command $PROG
+    	arg=" -d /dev/ttyACM0"
     else
-        arg1="/dev/ttyACM1"
-        procd_set_param command $PROG -d $arg1
+        arg=" -d /dev/ttyACM1"
     fi
-
+    procd_set_param command $PROG $arg
 	procd_set_param respawn
 
 	procd_set_param stdout 1
