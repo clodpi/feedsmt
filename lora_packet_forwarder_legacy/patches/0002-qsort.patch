@@ -1,5 +1,3 @@
-Index: lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
-===================================================================
 --- lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
 +++ lora_packet_forwarder_legacy-1.1/lora_pkt_fwd/src/jitqueue.c
 @@ -91,32 +91,31 @@
