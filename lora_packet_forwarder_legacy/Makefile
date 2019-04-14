@@ -42,6 +42,7 @@ define Package/lora_packet_forwarder_legacy_pico/install
 	$(INSTALL_DATA) ./files/lora-global.config $(1)/etc/config/lora-global
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/lora_pkt_fwd.init $(1)/etc/init.d/lora_pkt_fwd
+	$(INSTALL_BIN) ./files/chip_id.init $(1)/etc/init.d/chip_id
 endef
 
 $(eval $(call BuildPackage,lora_packet_forwarder_legacy_pico))
