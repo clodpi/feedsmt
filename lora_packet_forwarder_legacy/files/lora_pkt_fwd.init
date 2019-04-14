@@ -9,7 +9,7 @@ PROG=/usr/bin/lora_pkt_fwd
 
 generate_conf()
 {
-	GWID=$(/usr/bin/util_chip_id)
+	logger "Generating Config"
 	GATEWAY_ID=$(uci get network.lan.macaddr | awk -F\: '{print $1$2$3"FFFE"$4$5$6}')
 	uci set lora-global.gateway_conf.gateway_ID=$GATEWAY_ID
 	cat /etc/lora/$(uci get lora-global.gateway_conf.frequency_plan)-global_conf.json > /etc/lora/global_conf.json
