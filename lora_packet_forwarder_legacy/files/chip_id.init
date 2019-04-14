@@ -21,7 +21,7 @@ start_service()
 
 	procd_open_instance
 
-    if [ -e "/dev/ttyACM0"]
+    if [ -e "/dev/ttyACM0" ]
     then
         procd_set_param command $PROG
     else
