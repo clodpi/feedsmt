@@ -5,8 +5,6 @@ STOP=10
 USE_PROCD=1
 
 PROG=/usr/bin/lora_pkt_fwd
-path0=/dev/ttyACM0
-path0=/dev/ttyACM0
 
 
 generate_conf()
@@ -36,11 +34,12 @@ start_service()
 
 	procd_open_instance
 
-	if [-f "$path0"]
+    if [ -e "/dev/ttyACM0"]
     then
         procd_set_param command $PROG
     else
-        procd_set_param command $PROG -d $path1
+        arg1="/dev/ttyACM1"
+        procd_set_param command $PROG -d $arg1
     fi
 
 	procd_set_param respawn
