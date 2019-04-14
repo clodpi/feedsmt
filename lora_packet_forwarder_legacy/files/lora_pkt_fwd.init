@@ -5,31 +5,13 @@ STOP=10
 USE_PROCD=1
 
 PROG=/usr/bin/lora_pkt_fwd
+path0=/dev/ttyACM0
+path0=/dev/ttyACM0
 
-reset_sx1301_board ()
-{
-	local pin=$1
-
-	if [ -d "/sys/class/gpio/gpio${pin}" ]
-	then
-		echo 1 > /dev/null
-	else
-		echo ${pin} > /sys/class/gpio/export
-	fi
-	echo "out" > /sys/class/gpio/gpio${pin}/direction
-	echo "1" > /sys/class/gpio/gpio${pin}/value
-	sleep 1
-	echo "0" > /sys/class/gpio/gpio${pin}/value
-	sleep 1
-	echo "0" > /sys/class/gpio/gpio${pin}/value
-	sleep 1
-	echo "in" > /sys/class/gpio/gpio${pin}/direction
-
-	logger "SX1301 reset completed"
-}
 
 generate_conf()
 {
+	GWID=$(/usr/bin/util_chip_id)
 	GATEWAY_ID=$(uci get network.lan.macaddr | awk -F\: '{print $1$2$3"FFFE"$4$5$6}')
 	uci set lora-global.gateway_conf.gateway_ID=$GATEWAY_ID
 	cat /etc/lora/$(uci get lora-global.gateway_conf.frequency_plan)-global_conf.json > /usr/bin/global_conf.json
@@ -49,19 +31,17 @@ reload_service()
 
 start_service()
 {
-	local reset_enable=$(uci get lora-global.SX1301_conf.enable_reset_pin)
-
-	if [ ${reset_enable} == 1 ]; then
-    	logger "Reset SX1301"
-    	reset_pin=$(uci get lora-global.SX1301_conf.reset_pin)
-		reset_sx1301_board $reset_pin
-	fi
-
+	
 	generate_conf
 
 	procd_open_instance
 
-	procd_set_param command $PROG
+	if [-f "$path0"]
+    then
+        procd_set_param command $PROG
+    else
+        procd_set_param command $PROG -d $path1
+    fi
 
 	procd_set_param respawn
 
